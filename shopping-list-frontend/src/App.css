@@ -1,0 +1,121 @@
+.App {
+  background: linear-gradient(135deg, #fcd5ce, #fae1dd 100%);
+  min-height: 100vh;
+  direction: rtl;
+  text-align: center;
+  
+}
+
+/* RTL Support */
+body {
+  direction: rtl;
+  font-family: 'calibri';
+  
+}
+
+/* Custom styles */
+.card {
+  
+  border-radius: 15px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.btn {
+  border-radius: 10px;
+  font-weight: 500;
+}
+.btn-primary {
+  background-color: #fec5bb !important;
+  border-color: #fec5bb !important;
+}
+.bg-primary {
+  background-color: #fec5bb !important;
+}
+.form-control, .form-select {
+  border-radius: 10px;
+  border: 2px solid hsl(60, 16%, 93%);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #fec5bb;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container-fluid {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+    color: #212529 !important; 
+  }
+
+  .btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+.btn-success {
+  background-color: #fec5bb !important; /* כחול */
+  border-color: #fec5bb !important;
+}
+
+/* Loading animations */
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #fde4cf;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #fae1dd;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+h1[class*="text-primary"] {
+  color: #000000 !important;
+}
