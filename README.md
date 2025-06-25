@@ -6,7 +6,7 @@
 
 ##  קישורים לאתרים חיים
 
-- ** אפליקציית React**: [https://blue-ground-0e42e7610.6.azurestaticapps.net](https://blue-ground-0e42e7610.6.azurestaticapps.net)
+- ** אפליקציית React**: [https://blue-ground-0e42e7610.6.azurestaticapps.net]([https://blue-ground-0e42e7610.6.azurestaticapps.net](https://blue-ground-0e42e7610.6.azurestaticapps.net/))
 - **🔧 API השרת**: [https://shopping-list-api.azurewebsites.net](https://shopping-list-api.azurewebsites.net)
 - ** מסד נתונים**: Azure SQL Database בענן
 
