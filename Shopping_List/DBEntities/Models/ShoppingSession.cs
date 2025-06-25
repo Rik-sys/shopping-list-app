@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+
 
 
 namespace DBEntities.Models
@@ -26,7 +22,7 @@ namespace DBEntities.Models
         [MaxLength(1000)]
         public string? Notes { get; set; }
 
-        // Navigation Properties
+        
         public virtual ICollection<ShoppingCartItem> CartItems { get; set; } = [];
         public virtual ICollection<CompletedOrder> CompletedOrders { get; set; } = [];
     }

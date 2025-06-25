@@ -28,8 +28,6 @@ namespace DBEntities.Models
 
         [MaxLength(255)]
         public string? Notes { get; set; }
-
-        // Navigation Properties
         public virtual ShoppingSession Session { get; set; } = null!;
         public virtual Category Category { get; set; } = null!;
     }

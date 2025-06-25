@@ -81,7 +81,6 @@ namespace DAL
             _context.ShoppingCartItems.Add(item);
             await _context.SaveChangesAsync();
 
-            // Load the category for the item
             await _context.Entry(item)
                 .Reference(i => i.Category)
                 .LoadAsync();
@@ -97,7 +96,7 @@ namespace DAL
             _context.ShoppingCartItems.Update(item);
             await _context.SaveChangesAsync();
 
-            // Reload with category
+            
             await _context.Entry(item)
                 .Reference(i => i.Category)
                 .LoadAsync();

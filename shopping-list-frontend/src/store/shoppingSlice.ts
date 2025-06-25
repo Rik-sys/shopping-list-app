@@ -23,7 +23,7 @@ const initialState: ShoppingState = {
   error: null,
 };
 
-// Async thunks
+
 export const fetchCategories = createAsyncThunk(
   'shopping/fetchCategories',
   async () => {
@@ -80,7 +80,7 @@ const shoppingSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // Fetch categories
+      
       .addCase(fetchCategories.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -94,12 +94,12 @@ const shoppingSlice = createSlice({
         state.error = action.error.message || 'Failed to fetch categories';
       })
       
-      // Create session
+      
       .addCase(createSession.fulfilled, (state, action) => {
         state.sessionId = action.payload;
       })
       
-      // Add item
+      
       .addCase(addItemToCart.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -112,19 +112,19 @@ const shoppingSlice = createSlice({
         state.error = action.error.message || 'Failed to add item';
       })
       
-      // Fetch current cart
+      
       .addCase(fetchCurrentCart.fulfilled, (state, action) => {
         state.currentCart = action.payload;
       })
       
-      // Complete order
+      
       .addCase(completeOrder.fulfilled, (state) => {
         state.currentCart = null;
       })
       
-      // Remove item
+      
       .addCase(removeItem.fulfilled, (state) => {
-        // Will refetch cart after removal
+      
       });
   },
 });

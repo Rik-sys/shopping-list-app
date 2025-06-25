@@ -14,7 +14,6 @@ import CompleteOrderButton from './CompleteOrderButton';
 const ShoppingList: React.FC = () => {
   const dispatch = useAppDispatch();
   const { 
-    categories, 
     currentCart, 
     sessionId, 
     loading, 
@@ -22,16 +21,13 @@ const ShoppingList: React.FC = () => {
   } = useAppSelector(state => state.shopping);
 
   useEffect(() => {
-    // Initialize the app
+    
     const initializeApp = async () => {
       try {
-        // Fetch categories
         await dispatch(fetchCategories()).unwrap();
         
-        // Create new session
         const newSessionId = await dispatch(createSession()).unwrap();
         
-        // Fetch current cart (will be empty for new session)
         if (newSessionId) {
           await dispatch(fetchCurrentCart(newSessionId));
         }
@@ -43,7 +39,6 @@ const ShoppingList: React.FC = () => {
     initializeApp();
   }, [dispatch]);
 
-  // Refresh cart when sessionId changes
   useEffect(() => {
     if (sessionId) {
       dispatch(fetchCurrentCart(sessionId));
@@ -80,7 +75,6 @@ const ShoppingList: React.FC = () => {
 
   return (
     <Container fluid className="py-4" style={{ maxWidth: '1200px' }}>
-      {/* Header */}
       <Row className="mb-4">
         <Col>
           <h1 className="text-center text-primary mb-3" style={{ color: '#000000' }}>
@@ -92,21 +86,18 @@ const ShoppingList: React.FC = () => {
         </Col>
       </Row>
 
-      {/* Total Counter */}
       <Row className="mb-4">
         <Col>
           <TotalCounter />
         </Col>
       </Row>
 
-      {/* Add Item Form */}
       <Row className="mb-4">
         <Col>
           <AddItemForm />
         </Col>
       </Row>
 
-      {/* Shopping Cart Categories */}
       <Row>
         <Col>
           {currentCart && currentCart.categories.length > 0 ? (
@@ -128,7 +119,6 @@ const ShoppingList: React.FC = () => {
         </Col>
       </Row>
 
-      {/* Complete Order Button */}
       {currentCart && currentCart.totalItems > 0 && (
         <Row className="mt-4">
           <Col>
@@ -137,7 +127,6 @@ const ShoppingList: React.FC = () => {
         </Row>
       )}
 
-      {/* Session Info (for debugging) */}
       {sessionId && (
         <Row className="mt-4">
           <Col>

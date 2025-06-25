@@ -14,10 +14,6 @@ public class CategoriesController : ControllerBase
         _categoryBLL = categoryBLL;
         _logger = logger;
     }
-
-    /// <summary>
-    /// Get all categories
-    /// </summary>
     [HttpGet]
     [ProducesResponseType(typeof(ApiResponse<List<CategoryDto>>), 200)]
     [ProducesResponseType(typeof(ApiResponse<object>), 500)]
@@ -34,10 +30,6 @@ public class CategoriesController : ControllerBase
             return StatusCode(500, new ApiResponse<List<CategoryDto>>("שגיאת שרת", "INTERNAL_ERROR"));
         }
     }
-
-    /// <summary>
-    /// Get category by ID
-    /// </summary>
     [HttpGet("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<CategoryDto>), 200)]
     [ProducesResponseType(typeof(ApiResponse<object>), 404)]

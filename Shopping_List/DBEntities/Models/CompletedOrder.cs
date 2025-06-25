@@ -19,8 +19,6 @@ namespace DBEntities.Models
 
         [MaxLength(1000)]
         public string? Notes { get; set; }
-
-        // Navigation Properties
         public virtual ShoppingSession Session { get; set; } = null!;
         public virtual ICollection<CompletedOrderItem> Items { get; set; } = [];
     }

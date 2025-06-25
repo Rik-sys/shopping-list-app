@@ -8,21 +8,21 @@ namespace BLL
     {
         public MappingProfile()
         {
-            // Category mappings
+            
             CreateMap<Category, CategoryDto>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.CategoryId));
 
             CreateMap<CategoryDto, Category>()
                 .ForMember(dest => dest.CategoryId, opt => opt.MapFrom(src => src.Id));
 
-            // Shopping Session mappings  
+            
             CreateMap<ShoppingSession, ShoppingCartSummaryDto>()
                 .ForMember(dest => dest.SessionId, opt => opt.MapFrom(src => src.ShoppingSessionId));
 
-            // Shopping Cart Item mappings
+            
             CreateMap<ShoppingCartItem, ShoppingCartItemDto>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.ShoppingCartItemId))
-                .ForMember(dest => dest.CategoryName, opt => opt.Ignore()); // Set manually
+                .ForMember(dest => dest.CategoryName, opt => opt.Ignore()); 
 
             CreateMap<ShoppingCartItemDto, ShoppingCartItem>()
                 .ForMember(dest => dest.ShoppingCartItemId, opt => opt.MapFrom(src => src.Id));
@@ -36,10 +36,10 @@ namespace BLL
                 .ForMember(dest => dest.Category, opt => opt.Ignore())
                 .ForMember(dest => dest.IsChecked, opt => opt.MapFrom(src => false));
 
-            // Completed Order mappings
+            
             CreateMap<CompletedOrder, CompletedOrderDto>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.CompletedOrderId))
-                .ForMember(dest => dest.Items, opt => opt.Ignore()); // Set manually
+                .ForMember(dest => dest.Items, opt => opt.Ignore()); 
 
             CreateMap<CompletedOrderDto, CompletedOrder>()
                 .ForMember(dest => dest.CompletedOrderId, opt => opt.MapFrom(src => src.Id))

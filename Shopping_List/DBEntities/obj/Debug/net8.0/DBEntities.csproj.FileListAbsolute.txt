@@ -10,3 +10,16 @@ C:\Users\user1\Desktop\Shopping_List\DBEntities\obj\Debug\net8.0\refint\DBEntiti
 C:\Users\user1\Desktop\Shopping_List\DBEntities\obj\Debug\net8.0\DBEntities.pdb
 C:\Users\user1\Desktop\Shopping_List\DBEntities\obj\Debug\net8.0\ref\DBEntities.dll
 C:\Users\user1\Desktop\Shopping_List\DBEntities\obj\Debug\net8.0\DBEntities.csproj.AssemblyReference.cache
+C:\Users\user1\Desktop\ShoppingList\Shopping_List\DBEntities\bin\Debug\net8.0\DBEntities.deps.json
+C:\Users\user1\Desktop\ShoppingList\Shopping_List\DBEntities\bin\Debug\net8.0\DBEntities.dll
+C:\Users\user1\Desktop\ShoppingList\Shopping_List\DBEntities\bin\Debug\net8.0\DBEntities.pdb
+C:\Users\user1\Desktop\ShoppingList\Shopping_List\DBEntities\obj\Debug\net8.0\DBEntities.csproj.AssemblyReference.cache
+C:\Users\user1\Desktop\ShoppingList\Shopping_List\DBEntities\obj\Debug\net8.0\DBEntities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user1\Desktop\ShoppingList\Shopping_List\DBEntities\obj\Debug\net8.0\DBEntities.AssemblyInfoInputs.cache
+C:\Users\user1\Desktop\ShoppingList\Shopping_List\DBEntities\obj\Debug\net8.0\DBEntities.AssemblyInfo.cs
+C:\Users\user1\Desktop\ShoppingList\Shopping_List\DBEntities\obj\Debug\net8.0\DBEntities.csproj.CoreCompileInputs.cache
+C:\Users\user1\Desktop\ShoppingList\Shopping_List\DBEntities\obj\Debug\net8.0\DBEntities.sourcelink.json
+C:\Users\user1\Desktop\ShoppingList\Shopping_List\DBEntities\obj\Debug\net8.0\DBEntities.dll
+C:\Users\user1\Desktop\ShoppingList\Shopping_List\DBEntities\obj\Debug\net8.0\refint\DBEntities.dll
+C:\Users\user1\Desktop\ShoppingList\Shopping_List\DBEntities\obj\Debug\net8.0\DBEntities.pdb
+C:\Users\user1\Desktop\ShoppingList\Shopping_List\DBEntities\obj\Debug\net8.0\ref\DBEntities.dll

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8Gb+HKjhVks=",
+  "dgSpecHash": "YMDSISF0qTI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\user1\\Desktop\\Shopping_List\\Shopping_List\\Shopping_List.csproj",
+  "projectFilePath": "C:\\Users\\user1\\Desktop\\ShoppingList\\Shopping_List\\Shopping_List\\Shopping_List.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user1\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

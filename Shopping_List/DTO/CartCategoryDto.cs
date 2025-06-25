@@ -13,10 +13,7 @@ namespace DTO
         public string? CategoryIcon { get; set; }
         public int TotalItems { get; set; }
         public List<ShoppingCartItemDto> Items { get; set; }
-        public CartCategoryDto()
-        {
-
-        }
+        public CartCategoryDto() { }
         public CartCategoryDto(int categoryId, string categoryName, string? categoryIcon, int totalItems, List<ShoppingCartItemDto> items)
         {
             CategoryId = categoryId;

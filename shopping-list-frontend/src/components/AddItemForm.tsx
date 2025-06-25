@@ -28,10 +28,8 @@ const AddItemForm: React.FC = () => {
         priority: DEFAULT_VALUES.PRIORITY,
       })).unwrap();
       
-      // Refresh cart
       await dispatch(fetchCurrentCart(sessionId));
       
-      // Reset form
       setProductName('');
       setCategoryId('');
       setQuantity(1);

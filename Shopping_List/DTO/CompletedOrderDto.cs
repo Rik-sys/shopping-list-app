@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace DTO
 {
     public class CompletedOrderDto
@@ -18,7 +13,7 @@ namespace DTO
 
         
 
-        // Parameterless constructor for AutoMapper
+        
         public CompletedOrderDto()
         {
             OrderNumber = string.Empty;

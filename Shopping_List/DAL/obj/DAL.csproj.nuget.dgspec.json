@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user1\\Desktop\\Shopping_List\\DAL\\DAL.csproj": {}
+    "C:\\Users\\user1\\Desktop\\ShoppingList\\Shopping_List\\DAL\\DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user1\\Desktop\\Shopping_List\\DAL\\DAL.csproj": {
+    "C:\\Users\\user1\\Desktop\\ShoppingList\\Shopping_List\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user1\\Desktop\\Shopping_List\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\user1\\Desktop\\ShoppingList\\Shopping_List\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\user1\\Desktop\\Shopping_List\\DAL\\DAL.csproj",
+        "projectPath": "C:\\Users\\user1\\Desktop\\ShoppingList\\Shopping_List\\DAL\\DAL.csproj",
         "packagesPath": "C:\\Users\\user1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user1\\Desktop\\Shopping_List\\DAL\\obj\\",
+        "outputPath": "C:\\Users\\user1\\Desktop\\ShoppingList\\Shopping_List\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,11 +33,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\user1\\Desktop\\Shopping_List\\DBEntities\\DBEntities.csproj": {
-                "projectPath": "C:\\Users\\user1\\Desktop\\Shopping_List\\DBEntities\\DBEntities.csproj"
+              "C:\\Users\\user1\\Desktop\\ShoppingList\\Shopping_List\\DBEntities\\DBEntities.csproj": {
+                "projectPath": "C:\\Users\\user1\\Desktop\\ShoppingList\\Shopping_List\\DBEntities\\DBEntities.csproj"
               },
-              "C:\\Users\\user1\\Desktop\\Shopping_List\\IDAL\\IDAL.csproj": {
-                "projectPath": "C:\\Users\\user1\\Desktop\\Shopping_List\\IDAL\\IDAL.csproj"
+              "C:\\Users\\user1\\Desktop\\ShoppingList\\Shopping_List\\IDAL\\IDAL.csproj": {
+                "projectPath": "C:\\Users\\user1\\Desktop\\ShoppingList\\Shopping_List\\IDAL\\IDAL.csproj"
               }
             }
           }
@@ -96,14 +96,14 @@
         }
       }
     },
-    "C:\\Users\\user1\\Desktop\\Shopping_List\\DBEntities\\DBEntities.csproj": {
+    "C:\\Users\\user1\\Desktop\\ShoppingList\\Shopping_List\\DBEntities\\DBEntities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user1\\Desktop\\Shopping_List\\DBEntities\\DBEntities.csproj",
+        "projectUniqueName": "C:\\Users\\user1\\Desktop\\ShoppingList\\Shopping_List\\DBEntities\\DBEntities.csproj",
         "projectName": "DBEntities",
-        "projectPath": "C:\\Users\\user1\\Desktop\\Shopping_List\\DBEntities\\DBEntities.csproj",
+        "projectPath": "C:\\Users\\user1\\Desktop\\ShoppingList\\Shopping_List\\DBEntities\\DBEntities.csproj",
         "packagesPath": "C:\\Users\\user1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user1\\Desktop\\Shopping_List\\DBEntities\\obj\\",
+        "outputPath": "C:\\Users\\user1\\Desktop\\ShoppingList\\Shopping_List\\DBEntities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -171,14 +171,14 @@
         }
       }
     },
-    "C:\\Users\\user1\\Desktop\\Shopping_List\\IDAL\\IDAL.csproj": {
+    "C:\\Users\\user1\\Desktop\\ShoppingList\\Shopping_List\\IDAL\\IDAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user1\\Desktop\\Shopping_List\\IDAL\\IDAL.csproj",
+        "projectUniqueName": "C:\\Users\\user1\\Desktop\\ShoppingList\\Shopping_List\\IDAL\\IDAL.csproj",
         "projectName": "IDAL",
-        "projectPath": "C:\\Users\\user1\\Desktop\\Shopping_List\\IDAL\\IDAL.csproj",
+        "projectPath": "C:\\Users\\user1\\Desktop\\ShoppingList\\Shopping_List\\IDAL\\IDAL.csproj",
         "packagesPath": "C:\\Users\\user1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user1\\Desktop\\Shopping_List\\IDAL\\obj\\",
+        "outputPath": "C:\\Users\\user1\\Desktop\\ShoppingList\\Shopping_List\\IDAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -200,8 +200,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\user1\\Desktop\\Shopping_List\\DBEntities\\DBEntities.csproj": {
-                "projectPath": "C:\\Users\\user1\\Desktop\\Shopping_List\\DBEntities\\DBEntities.csproj"
+              "C:\\Users\\user1\\Desktop\\ShoppingList\\Shopping_List\\DBEntities\\DBEntities.csproj": {
+                "projectPath": "C:\\Users\\user1\\Desktop\\ShoppingList\\Shopping_List\\DBEntities\\DBEntities.csproj"
               }
             }
           }

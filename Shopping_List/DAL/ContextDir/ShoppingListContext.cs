@@ -13,7 +13,7 @@ namespace DAL.ContextDir
         {
         }
 
-        // DbSets
+        
         public DbSet<Category> Categories { get; set; }
         public DbSet<ShoppingSession> ShoppingSessions { get; set; }
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
@@ -24,10 +24,10 @@ namespace DAL.ContextDir
         {
             base.OnModelCreating(modelBuilder);
 
-            // Category Configuration
+            
             modelBuilder.Entity<Category>(entity =>
             {
-                entity.HasKey(e => e.CategoryId); // שמתי לב ששינית ל-CategoryId
+                entity.HasKey(e => e.CategoryId);
                 entity.Property(e => e.Name).IsRequired().HasMaxLength(100);
                 entity.Property(e => e.Description).HasMaxLength(255);
                 entity.Property(e => e.IconName).HasMaxLength(50);
@@ -37,10 +37,9 @@ namespace DAL.ContextDir
                 entity.Property(e => e.IsActive).HasDefaultValue(true);
             });
 
-            // ShoppingSession Configuration
             modelBuilder.Entity<ShoppingSession>(entity =>
             {
-                entity.HasKey(e => e.ShoppingSessionId); // הנחתי ששינית גם את זה
+                entity.HasKey(e => e.ShoppingSessionId); 
                 entity.Property(e => e.SessionName).HasMaxLength(100);
                 entity.Property(e => e.Status).HasMaxLength(20).HasDefaultValue("Active");
                 entity.Property(e => e.Notes).HasMaxLength(1000);
@@ -48,10 +47,9 @@ namespace DAL.ContextDir
                 entity.Property(e => e.TotalItems).HasDefaultValue(0);
             });
 
-            // ShoppingCartItem Configuration
             modelBuilder.Entity<ShoppingCartItem>(entity =>
             {
-                entity.HasKey(e => e.ShoppingCartItemId); // כפי ששינית
+                entity.HasKey(e => e.ShoppingCartItemId); 
                 entity.Property(e => e.ProductName).IsRequired().HasMaxLength(150);
                 entity.Property(e => e.Unit).HasMaxLength(20).HasDefaultValue("יחידה");
                 entity.Property(e => e.Priority).HasMaxLength(10).HasDefaultValue("Normal");
@@ -60,7 +58,6 @@ namespace DAL.ContextDir
                 entity.Property(e => e.IsChecked).HasDefaultValue(false);
                 entity.Property(e => e.AddedAt).HasDefaultValueSql("GETUTCDATE()");
 
-                // Foreign Keys
                 entity.HasOne(e => e.Session)
                       .WithMany(s => s.CartItems)
                       .HasForeignKey(e => e.SessionId)
@@ -71,42 +68,36 @@ namespace DAL.ContextDir
                       .HasForeignKey(e => e.CategoryId)
                       .OnDelete(DeleteBehavior.Restrict);
 
-                // Indexes
                 entity.HasIndex(e => new { e.SessionId, e.ProductName, e.CategoryId })
                       .HasDatabaseName("IX_ShoppingCartItems_Session_Product_Category");
             });
 
-            // CompletedOrder Configuration
             modelBuilder.Entity<CompletedOrder>(entity =>
             {
-                entity.HasKey(e => e.CompletedOrderId); // כפי ששינית
+                entity.HasKey(e => e.CompletedOrderId); 
                 entity.Property(e => e.OrderNumber).IsRequired().HasMaxLength(20);
                 entity.Property(e => e.Notes).HasMaxLength(1000);
                 entity.Property(e => e.CompletedAt).HasDefaultValueSql("GETUTCDATE()");
 
-                // Foreign Key
                 entity.HasOne(e => e.Session)
                       .WithMany(s => s.CompletedOrders)
                       .HasForeignKey(e => e.SessionId)
                       .OnDelete(DeleteBehavior.Restrict);
 
-                // Indexes
                 entity.HasIndex(e => e.OrderNumber).IsUnique()
                       .HasDatabaseName("IX_CompletedOrders_OrderNumber_Unique");
                 entity.HasIndex(e => e.CompletedAt)
                       .HasDatabaseName("IX_CompletedOrders_CompletedAt");
             });
 
-            // CompletedOrderItem Configuration
             modelBuilder.Entity<CompletedOrderItem>(entity =>
             {
-                entity.HasKey(e => e.CompletedOrderItemId); // כפי ששינית
+                entity.HasKey(e => e.CompletedOrderItemId); 
                 entity.Property(e => e.ProductName).IsRequired().HasMaxLength(150);
                 entity.Property(e => e.CategoryName).IsRequired().HasMaxLength(100);
                 entity.Property(e => e.Unit).HasMaxLength(20).HasDefaultValue("יחידה");
                 entity.Property(e => e.Priority).HasMaxLength(10).HasDefaultValue("Normal");
 
-                // Foreign Keys
                 entity.HasOne(e => e.Order)
                       .WithMany(o => o.Items)
                       .HasForeignKey(e => e.OrderId)
@@ -118,7 +109,6 @@ namespace DAL.ContextDir
                       .OnDelete(DeleteBehavior.Restrict);
             });
 
-            // Seed Data
             modelBuilder.Entity<Category>().HasData(
                 new Category
                 {

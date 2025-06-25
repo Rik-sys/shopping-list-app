@@ -17,10 +17,6 @@ namespace ShoppingList.API.Controllers
             _shoppingBLL = shoppingBLL;
             _logger = logger;
         }
-
-        /// <summary>
-        /// Get all active categories
-        /// </summary>
         [HttpGet("categories")]
         [ProducesResponseType(typeof(ApiResponse<List<CategoryDto>>), 200)]
         [ProducesResponseType(typeof(ApiResponse<object>), 500)]
@@ -37,10 +33,6 @@ namespace ShoppingList.API.Controllers
                 return StatusCode(500, new ApiResponse<List<CategoryDto>>("שגיאת שרת", "INTERNAL_ERROR"));
             }
         }
-
-        /// <summary>
-        /// Add item to shopping cart
-        /// </summary>
         [HttpPost("add-item")]
         [ProducesResponseType(typeof(ApiResponse<ShoppingCartItemDto>), 200)]
         [ProducesResponseType(typeof(ApiResponse<object>), 400)]
@@ -70,10 +62,6 @@ namespace ShoppingList.API.Controllers
                 return StatusCode(500, new ApiResponse<ShoppingCartItemDto>("שגיאת שרת", "INTERNAL_ERROR"));
             }
         }
-
-        /// <summary>
-        /// Get current shopping cart
-        /// </summary>
         [HttpGet("current-cart/{sessionId:guid}")]
         [ProducesResponseType(typeof(ApiResponse<ShoppingCartSummaryDto>), 200)]
         [ProducesResponseType(typeof(ApiResponse<object>), 400)]
@@ -100,10 +88,6 @@ namespace ShoppingList.API.Controllers
                 return StatusCode(500, new ApiResponse<ShoppingCartSummaryDto>("שגיאת שרת", "INTERNAL_ERROR"));
             }
         }
-
-        /// <summary>
-        /// Complete the current order
-        /// </summary>
         [HttpPost("complete-order")]
         [ProducesResponseType(typeof(ApiResponse<CompletedOrderDto>), 200)]
         [ProducesResponseType(typeof(ApiResponse<object>), 400)]
@@ -133,10 +117,6 @@ namespace ShoppingList.API.Controllers
                 return StatusCode(500, new ApiResponse<CompletedOrderDto>("שגיאת שרת", "INTERNAL_ERROR"));
             }
         }
-
-        /// <summary>
-        /// Update item quantity or check status
-        /// </summary>
         [HttpPut("update-item")]
         [ProducesResponseType(typeof(ApiResponse<bool>), 200)]
         [ProducesResponseType(typeof(ApiResponse<object>), 400)]
@@ -158,10 +138,6 @@ namespace ShoppingList.API.Controllers
                 return StatusCode(500, new ApiResponse<bool>("שגיאת שרת", "INTERNAL_ERROR"));
             }
         }
-
-        /// <summary>
-        /// Remove item from cart
-        /// </summary>
         [HttpDelete("remove-item/{itemId:int}")]
         [ProducesResponseType(typeof(ApiResponse<bool>), 200)]
         [ProducesResponseType(typeof(ApiResponse<object>), 400)]
@@ -188,10 +164,6 @@ namespace ShoppingList.API.Controllers
                 return StatusCode(500, new ApiResponse<bool>("שגיאת שרת", "INTERNAL_ERROR"));
             }
         }
-
-        /// <summary>
-        /// Create new shopping session
-        /// </summary>
         [HttpPost("new-session")]
         [ProducesResponseType(typeof(ApiResponse<Guid>), 200)]
         [ProducesResponseType(typeof(ApiResponse<object>), 500)]
@@ -199,7 +171,6 @@ namespace ShoppingList.API.Controllers
         {
             try
             {
-                // השתמש ב-BLL ליצירת סשן אמיתי
                 var session = await _shoppingBLL.GetOrCreateActiveSessionAsync();
                 return Ok(new ApiResponse<Guid>(session.SessionId, "סשן חדש נוצר בהצלחה"));
             }

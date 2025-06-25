@@ -8,7 +8,6 @@ interface CategorySectionProps {
 }
 
 const CategorySection: React.FC<CategorySectionProps> = ({ category }) => {
-  // Helper function to get icon based on category name
   const getCategoryIcon = (iconName?: string, categoryName?: string) => {
     if (iconName) return iconName;
     

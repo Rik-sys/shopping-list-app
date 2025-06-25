@@ -28,10 +28,8 @@ const CompleteOrderButton: React.FC = () => {
       setNotes('');
       setShowSuccess(true);
       
-      // Create new session for next order
       await dispatch(createSession());
       
-      // Hide success message after 3 seconds
       setTimeout(() => setShowSuccess(false), 3000);
     } catch (error) {
       console.error('Failed to complete order:', error);

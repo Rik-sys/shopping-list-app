@@ -15,21 +15,5 @@ namespace DTO
         public DateTime CreatedAt { get; set; }
         public DateTime? CompletedAt { get; set; }
         public string? Notes { get; set; }
-
-        // Parameterless constructor for AutoMapper
-        public ShoppingSessionDto()
-        {
-        }
-
-        public ShoppingSessionDto(Guid sessionId, string? sessionName, string status, int totalItems, DateTime createdAt, DateTime? completedAt = null, string? notes = null)
-        {
-            SessionId = sessionId;
-            SessionName = sessionName;
-            Status = status;
-            TotalItems = totalItems;
-            CreatedAt = createdAt;
-            CompletedAt = completedAt;
-            Notes = notes;
-        }
     }
 }

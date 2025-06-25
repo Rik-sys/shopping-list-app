@@ -32,7 +32,7 @@ namespace BLL
         {
             try
             {
-                // DAL returns DbEntities, AutoMapper converts to DTOs
+              
                 var categories = await _categoryDAL.GetAllActiveAsync();
                 return _mapper.Map<List<CategoryDto>>(categories);
             }
@@ -47,46 +47,41 @@ namespace BLL
         {
             try
             {
-                // Business Logic Validation
+             
                 ValidateAddItemRequest(request);
 
-                // Check if category exists - DAL returns Entity
+             
                 var category = await _categoryDAL.GetByIdAsync(request.CategoryId);
                 if (category == null)
                     throw new BusinessException("הקטגוריה שנבחרה לא קיימת");
 
-                // Get or create shopping session - DAL returns Entity
+              
                 var session = await _shoppingDAL.GetOrCreateActiveSessionAsync();
 
-                // Check if item already exists - DAL returns Entity
-                // FIX: Use ShoppingSessionId instead of SessionId
+               
+               
                 var existingItem = await _shoppingDAL.GetCartItemAsync(
                     session.ShoppingSessionId, request.ProductName, request.CategoryId);
 
                 ShoppingCartItem cartItem;
                 if (existingItem != null)
                 {
-                    // Update existing item quantity
                     existingItem.Quantity += request.Quantity;
                     cartItem = await _shoppingDAL.UpdateCartItemAsync(existingItem);
                 }
                 else
                 {
-                    // Create new cart item Entity from DTO using AutoMapper
                     cartItem = _mapper.Map<ShoppingCartItem>(request);
-                    cartItem.SessionId = session.ShoppingSessionId; // FIX: Use ShoppingSessionId
+                    cartItem.SessionId = session.ShoppingSessionId; 
                     cartItem.AddedAt = DateTime.UtcNow;
                     cartItem = await _shoppingDAL.AddCartItemAsync(cartItem);
                 }
 
-                // Update session totals
-                // FIX: Use ShoppingSessionId instead of SessionId
+                
                 await _shoppingDAL.UpdateSessionTotalsAsync(session.ShoppingSessionId);
 
-                // Convert Entity back to DTO using AutoMapper
                 var result = _mapper.Map<ShoppingCartItemDto>(cartItem);
 
-                // FIX: Update CategoryName properly (can't use 'with' on class)
                 result.CategoryName = category.Name;
 
                 return result;
@@ -106,7 +101,6 @@ namespace BLL
         {
             try
             {
-                // DAL returns Entities, AutoMapper converts to DTOs
                 var session = await _shoppingDAL.GetSessionAsync(sessionId);
                 if (session == null)
                     throw new BusinessException("סשן הקניות לא נמצא");
@@ -114,27 +108,23 @@ namespace BLL
                 var cartItems = await _shoppingDAL.GetCartItemsAsync(sessionId);
                 var categories = await _categoryDAL.GetAllActiveAsync();
 
-                // Convert Entities to DTOs using AutoMapper
                 var cartItemDtos = _mapper.Map<List<ShoppingCartItemDto>>(cartItems);
                 var categoryDtos = _mapper.Map<List<CategoryDto>>(categories);
 
-                // Set category names for cart items
-                // FIX: Create new list instead of modifying foreach variable
+             
                 var updatedCartItems = new List<ShoppingCartItemDto>();
                 foreach (var item in cartItemDtos)
                 {
                     var category = categoryDtos.First(c => c.Id == item.CategoryId);
-                    item.CategoryName = category.Name; // This works because DTOs are classes
+                    item.CategoryName = category.Name;
                     updatedCartItems.Add(item);
                 }
 
-                // Group items by category - Pure DTO operations
                 var groupedItems = updatedCartItems
                     .GroupBy(item => item.CategoryId)
                     .Select(group =>
                     {
                         var category = categoryDtos.First(c => c.Id == group.Key);
-                        // FIX: Use proper constructor parameters
                         return new CartCategoryDto(
                             categoryId: category.Id,
                             categoryName: category.Name,
@@ -146,7 +136,6 @@ namespace BLL
                     .OrderBy(c => categoryDtos.First(cat => cat.Id == c.CategoryId).SortOrder)
                     .ToList();
 
-                // FIX: Use proper constructor parameters
                 return new ShoppingCartSummaryDto(
                     sessionId: sessionId,
                     totalItems: updatedCartItems.Sum(i => i.Quantity),
@@ -166,12 +155,10 @@ namespace BLL
             }
         }
 
-        // FIX: Return type should be CompletedOrderDto, not CompleteOrderRequestDto
         public async Task<CompletedOrderDto> CompleteOrderAsync(CompleteOrderRequestDto request)
         {
             try
             {
-                // DAL returns Entities
                 var session = await _shoppingDAL.GetSessionAsync(request.SessionId);
                 if (session == null)
                     throw new BusinessException("סשן הקניות לא נמצא");
@@ -180,10 +167,8 @@ namespace BLL
                 if (!cartItems.Any())
                     throw new BusinessException("הסל ריק - אין מוצרים להזמנה");
 
-                // Generate order number
                 var orderNumber = GenerateOrderNumber();
 
-                // Create completed order Entity
                 var completedOrder = new CompletedOrder
                 {
                     OrderNumber = orderNumber,
@@ -196,7 +181,6 @@ namespace BLL
 
                 var savedOrder = await _shoppingDAL.CreateCompletedOrderAsync(completedOrder);
 
-                // Create order items Entities using AutoMapper
                 var categories = await _categoryDAL.GetAllActiveAsync();
                 var orderItems = cartItems.Select(cartItem =>
                 {
@@ -208,12 +192,10 @@ namespace BLL
 
                 await _shoppingDAL.CreateOrderItemsAsync(orderItems);
 
-                // Update session status
                 session.Status = "Completed";
                 session.CompletedAt = DateTime.UtcNow;
                 await _shoppingDAL.UpdateSessionAsync(session);
 
-                // Convert to DTO using AutoMapper
                 var result = _mapper.Map<CompletedOrderDto>(savedOrder);
                 result.Items = _mapper.Map<List<CompletedOrderItemDto>>(orderItems);
 
@@ -237,12 +219,10 @@ namespace BLL
                 if (request.Quantity.HasValue && request.Quantity <= 0)
                     throw new BusinessException("כמות המוצר חייבת להיות גדולה מ-0");
 
-                // Get the cart item by ID
+                
                 var item = await _shoppingDAL.GetCartItemByIdAsync(request.ItemId);
                 if (item == null)
                     throw new BusinessException("המוצר לא נמצא בסל");
-
-                // Update the item properties
                 if (request.Quantity.HasValue)
                     item.Quantity = request.Quantity.Value;
 
@@ -254,11 +234,7 @@ namespace BLL
 
                 if (!string.IsNullOrEmpty(request.Notes))
                     item.Notes = request.Notes;
-
-                // Update the item in database
                 await _shoppingDAL.UpdateCartItemAsync(item);
-
-                // Update session totals
                 await _shoppingDAL.UpdateSessionTotalsAsync(item.SessionId);
 
                 _logger.LogInformation("Updated cart item {ItemId} - Quantity: {Quantity}, IsChecked: {IsChecked}",
@@ -297,8 +273,6 @@ namespace BLL
                 throw new BusinessException("שגיאה בהסרת המוצר מהסל");
             }
         }
-
-        // Private Helper Methods
         private static void ValidateAddItemRequest(AddItemRequestDto request)
         {
             if (string.IsNullOrWhiteSpace(request.ProductName))
@@ -320,8 +294,6 @@ namespace BLL
             try
             {
                 var session = await _shoppingDAL.GetOrCreateActiveSessionAsync();
-
-                // המרה ידנית (בלי AutoMapper כי זה פשוט)
                 return new ShoppingSessionDto
                 {
                     SessionId = session.ShoppingSessionId,

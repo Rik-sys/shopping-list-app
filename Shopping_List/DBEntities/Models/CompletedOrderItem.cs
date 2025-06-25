@@ -25,7 +25,6 @@ namespace DBEntities.Models
         [MaxLength(10)]
         public string Priority { get; set; } = "Normal";
 
-        // Navigation Properties
         public virtual CompletedOrder Order { get; set; } = null!;
         public virtual Category Category { get; set; } = null!;
     }

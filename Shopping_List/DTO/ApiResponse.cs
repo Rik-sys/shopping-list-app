@@ -30,14 +30,5 @@ namespace DTO
             Timestamp = DateTime.UtcNow;
             ErrorCode = errorCode;
         }
-
-        public ApiResponse(bool success, string message, T? data = default, DateTime? timestamp = null, string? errorCode = null)
-        {
-            Success = success;
-            Message = message;
-            Data = data;
-            Timestamp = timestamp ?? DateTime.UtcNow;
-            ErrorCode = errorCode;
-        }
     }
 }
