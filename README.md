@@ -116,7 +116,7 @@ dotnet ef database update
 
 # הרצת השרת עם הגדרות development
 dotnet run --environment Development
-
+אם יש Swagger מוגדר, תוכל לראות את כל ה-endpoints ב: http://localhost:[כתובת השרת שלך]/swagger
 # אל תסגור את הטרמינל הזה!
 ```
 
