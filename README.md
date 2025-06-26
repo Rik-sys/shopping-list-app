@@ -57,7 +57,8 @@ Azure Static Web Apps         Azure App Service           Azure SQL Server
 git clone https://github.com/Rik-sys/shopping-list-app.git
 cd shopping-list-app
 # וידוא מבנה התיקיות:
-ls -la
+dir /a
+
 # אמור להראות:
 # 📁 Shopping_List/           - פרויקט השרת (.NET)
 # 📁 shopping-list-frontend/  - פרויקט הלקוח (React)
