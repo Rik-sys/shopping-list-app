@@ -111,7 +111,7 @@ dotnet build
 
 ```bash
 # עכשיו יצירת מסד הנתונים והטבלאות
-cd DAL
+cd Shopping_List
 dotnet ef database update
 
 # הרצת השרת עם הגדרות development
