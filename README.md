@@ -55,8 +55,7 @@ Azure Static Web Apps         Azure App Service           Azure SQL Server
 ```bash
 # שכפול הפרויקט הראשי
 git clone https://github.com/Rik-sys/shopping-list-app.git
-cd ShoppingList
-
+cd shopping-list-app
 # וידוא מבנה התיקיות:
 ls -la
 # אמור להראות:
